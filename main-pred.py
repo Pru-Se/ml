@@ -9,5 +9,7 @@ nn.fit(x.reshape(-1, 1), y)
 
 y_pred = nn.predict(x.reshape(-1, 1))
 
-plt.scatter(x, y)
-plt.scatter(x, y_pred)
+fig, ax = plt.subplots()
+ax.scatter(x, y)
+ax.scatter(x, y_pred)
+st.pyplot(fig)
