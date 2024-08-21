@@ -28,6 +28,7 @@ if classifier == 'SVM':
   svm.fit(x_train, y_train)
   y_pred = svm.predict(x_test)
   acc = accuracy_score(y_test, y_pred)
+  st.write(acc)
 if classifier == 'RF':
   rf = RandomForestClassifier(n_estimators=100)
   rf.fit(x_train, y_train)
