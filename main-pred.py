@@ -10,7 +10,7 @@ plt.scatter(x, y)
 
 #y_pred = nn.predict(x.reshape(-1, 1))
 
-#fig, ax = plt.subplots()
-#ax.scatter(x, y)
-#ax.scatter(x, y_pred)
-#st.pyplot(fig)
+fig, ax = plt.subplots()
+ax.scatter(x, y)
+ax.scatter(x, y_pred)
+st.pyplot(fig)
