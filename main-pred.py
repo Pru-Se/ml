@@ -1,7 +1,8 @@
 import numpy as np
+import matplotlib.pyplot as plt
 x = np.random.rand(100)
 y = 2 * x + 1 + 0.2* np.random.randn(100)
-import matplotlib.pyplot as plt
+plt.scatter(x, y)
 
 from sklearn.neural_network import MLPRegressor
 nn = MLPRegressor(hidden_layer_sizes=(10, 10, 10), max_iter=1000)
