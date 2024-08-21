@@ -5,6 +5,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.tree import DecisionTreeClassifier
 
 df = sns.load_dataset('iris')
 df
@@ -15,7 +16,7 @@ y = df['species']
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
 
 st.sidebar.title('Classifiers')
-classifier = st.sidebar.selectbox('Select Classifier', ('KNN', 'SVM', 'RF'))
+classifier = st.sidebar.selectbox('Select Classifier', ('KNN', 'SVM', 'RF', 'DT'))
 k = st.sidebar.slider('K', 1, 120, 3)
 if classifier == 'KNN':
   knn = KNeighborsClassifier(n_neighbors=3)
@@ -33,5 +34,11 @@ if classifier == 'RF':
   rf = RandomForestClassifier(n_estimators=100)
   rf.fit(x_train, y_train)
   y_pred = rf.predict(x_test)
+  acc = accuracy_score(y_test, y_pred)
+  st.write(acc)
+if classifier == 'DT':
+  dt = DecisionTreeClassifier()
+  dt.fit(x_train, y_train)
+  y_pred = dt.predict(x_test)
   acc = accuracy_score(y_test, y_pred)
   st.write(acc)
